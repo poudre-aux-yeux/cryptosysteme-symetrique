@@ -1,11 +1,11 @@
 <?php
   class Encoding {
     private function lettre_chiffre($lettre) {
-      return ord(utf8_encode($lettre));
+      return pack("H*", utf8_encode($lettre));
     }
 
     private function chiffre_lettre($chiffre) {      
-      return chr($chiffre);
+      return unpack($chiffre)[0];
     }
 
     public static function chaine_utf8($mot) {

@@ -10,5 +10,5 @@
   }
 
   encoding1();
-  encoding2();
+  //encoding2();
 ?>

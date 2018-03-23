@@ -14,7 +14,7 @@
       $arr = str_split($mot);
       $result = array();
       foreach ($arr as $lettre) {
-        $result[] = hex2bin(Encoding::lettre_chiffre($lettre));
+        $result[] = str_pad(base_convert(Encoding::lettre_chiffre($lettre), 16, 2), 8, 0, STR_PAD_LEFT);
       }
       var_dump($result);
       return $result;

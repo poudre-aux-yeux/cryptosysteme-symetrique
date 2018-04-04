@@ -10,9 +10,9 @@ function register($class) {
     }
   }
 }
-/*
+
 spl_autoload_register("register");
 
 include_once("cesar.php");
 include_once("encoding.php");
-*/?>
+?>

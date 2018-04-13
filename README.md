@@ -13,7 +13,11 @@ php ./src/start.php
 Utilisation du mot ```AMI```
 
 _La méthode de césar dans le programme utilise le code ASCII_
+
 _Le cryptage du mot passe par l'encodage UTF-8_
+
+test  
+test ligne
 
 1. Césarification du mot : AMI > [0,12,8]
 2. Dé-césarification du mot césarifié : [0,12,8] > AMI

@@ -2,11 +2,13 @@
   include_once("classes/Encoding.class.php");
 
   function encoding1() {
-    echo json_encode(Encoding::chaine_utf8("AMI")) . "\n";
+    echo "encoding1 : texte => binaire\n";
+    echo json_encode(Encoding::text_to_binary("AMI")) . "\n\n";
   }
 
   function encoding2() {
-    echo Encoding::chiffre_utf8(Encoding::chaine_utf8("AMI")) . "\n";
+    echo "encoding2 : binaire => texte\n";
+    echo Encoding::binary_to_text(Encoding::text_to_binary("AMI")) . "\n\n";
   }
 
   encoding1();

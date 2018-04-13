@@ -2,19 +2,23 @@
 include_once("classes/Cesar.class.php");
 
 function cesar1() {
-  echo json_encode(Cesar::code_mot_chiffre('AMI')) . "\n";
+  echo "cesar1 : césarification d'un mot (AMI)\n";
+  echo json_encode(Cesar::code_mot_chiffre('AMI')) . "\n_\n";
 }
 
 function cesar2() {
-  echo Cesar::code_chiffre_mot(Cesar::code_mot_chiffre('AMI')) . "\n";
+  echo "cesar2 : dé-césarification d'un mot césarifié (AMI)\n";
+  echo Cesar::code_chiffre_mot(Cesar::code_mot_chiffre('AMI')) . "\n_\n";
 }
 
 function cesar3() {
-  echo json_encode(Cesar::crypto('AMI')) . "\n";
+  echo "cesar3 : cryptage d'un mot (AMI)\n";
+  echo json_encode(Cesar::crypto('AMI')) . "\n_\n";
 }
 
 function cesar4() {
-  echo Cesar::uncrypto(Cesar::crypto('AMI')) . "\n";  
+  echo "cesar4 : décryptage d'un mot (AMI)\n";
+  echo Cesar::uncrypto(Cesar::crypto('AMI')) . "\n_\n";  
 }
 
 cesar1();

@@ -38,8 +38,8 @@ Ordre mélangé | 5 | 6 | 0 | 3 | 4 | 2 | 7 | 1
 
 1. Encodage du mot de texte en binaire : `AMI > 010000010100110101001001`
 2. Désencodage du mot de binaire en texte : `010000010100110101001001 > AMI`
-3. Test de la fonction de permutation (shuffle) et dé-permutation (unshuffle)
-4. Test de la fonction de substitution (substitute) et dé-substitution (unsubstitute)
+3. Test de la fonction de permutation (shuffle) et dé-permutation (unshuffle) sur une lettre
+4. Test de la fonction de substitution (substitute) et dé-substitution (unsubstitute) sur une lettre
 5. Encodage avec permutation `AMI > 000000111000101100001011`
 6. Désencodage avec permutation `000000111000101100001011 > AMI`
 7. Réseau de Feistel : `AMI > (Binaire > Permutation > Substitution > XOR)*12 > 001100110000101111001010`

@@ -21,13 +21,27 @@ _Le cryptage du mot passe par l'encodage UTF-8_
 5. Encodage du mot de texte en binaire : `AMI > 010000010100110101001001`
 6. Désencodage du mot de binaire en texte : `010000010100110101001001 > AMI`
 
-### La permutation
+### Encodage
+
+#### La permutation
 
 Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 Ordre mélangé | 5 | 6 | 0 | 3 | 4 | 2 | 7 | 1
 
 1. On récupère la chaine binaire à permuter
-2. On sépare chaque partie du binaire correspondant à chaque lettre encodé
-3. On mélange les caractères binaires d'un même lot entre eux et suivant suivant un même schéma
+2. On sépare chaque partie du binaire correspondant à chaque lettre encodé (lots de 8 bits)
+3. On mélange les caractères binaires d'un même lot entre eux et suivant suivant un même schéma (tableau ci-dessus)
 4. On réassemble le tout pour obtenir le nouveau mot encodé et permuté
+
+---
+
+1. Encodage du mot de texte en binaire : `AMI > 010000010100110101001001`
+2. Désencodage du mot de binaire en texte : `010000010100110101001001 > AMI`
+3. Test de la fonction de permutation (shufle) et dé-permutation (unshuffle)
+4. Encodage avec permutation `AMI > 000000111000101100001011`
+5. Désencodage avec permutation `000000111000101100001011 > AMI`
+
+```
+
+```

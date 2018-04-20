@@ -14,7 +14,7 @@
     echo "shfl : every day I'm shuffling (01001101)\n";
     $shuffled = Encoding::shuffle("01001101");
     echo $shuffled. "\n";
-    echo "and un-shuffling\n";
+    echo "And un-shuffling\n";
     echo Encoding::unshuffle($shuffled) . "\n\n";
   }
 

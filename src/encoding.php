@@ -22,35 +22,35 @@
     echo "Encoding4 - sub : substitution (01001101)\n";
     $substituted = Encoding::substitute("0100") . Encoding::substitute("1101");
     echo $substituted. "\n";
-    echo "et dé-substitution\n";
+    echo "Et dé-substitution\n";
     $splitted = str_split($substituted, 4);
     echo Encoding::unsubstitute($splitted[0]) . Encoding::unsubstitute($splitted[1]) . "\n\n";
   }
 
   function crypto() {
     $key = "0110";
-    echo "Encoding1 - crypto : cryptage complet d'une chaîne (AMI)\n";
-    echo Encoding::crypto("AMI", $key) . "\n\n";
+    echo "Encoding5 - crypto : cryptage complet d'une chaîne (AMI)\n";
+    echo Encoding::crypto(Encoding::text_to_binary("AMI"), $key) . "\n\n";
   }
 
   function uncrypto() {
     $key = "0110";
-    echo "Encoding1 - uncrypto : décryptage complet d'une chaîne (AMI)\n";
-    $encrypted = Encoding::crypto("AMI", $key);
-    echo Encoding::uncrypto($encrypted, $key) . "\n\n";
+    echo "Encoding6 - uncrypto : décryptage complet d'une chaîne (AMI)\n";
+    $encrypted = Encoding::crypto(Encoding::text_to_binary("AMI"), $key);
+    echo Encoding::binary_to_text(Encoding::uncrypto($encrypted, $key)) . "\n\n";
   }
 
   function feistel() {
     $key = "0110";
-    echo "Encoding1 - feistel : cryptage complet d'une chaîne (AMI) x fois\n";
-    echo Encoding::feistel("AMI", $key, 3) . "\n\n";
+    echo "Encoding7 - feistel : cryptage complet d'une chaîne (AMI) x fois\n";
+    echo Encoding::feistel("AMI", $key, 12) . "\n\n";
   }
 
   function unfeistel() {
     $key = "0110";
-    echo "Encoding1 - unfeistel : décryptage complet d'une chaîne (AMI)\n";
-    $encrypted = Encoding::feistel("AMI", $key, 3);
-    echo Encoding::unfeistel($encrypted, $key, 3) . "\n\n";
+    echo "Encoding8 - unfeistel : décryptage complet d'une chaîne (AMI)\n";
+    $encrypted = Encoding::feistel("AMI", $key, 12);
+    echo Encoding::unfeistel($encrypted, $key, 12) . "\n\n";
   }
 
   ttob();

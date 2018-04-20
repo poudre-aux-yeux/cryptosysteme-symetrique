@@ -101,12 +101,28 @@
       foreach ($splitted as $bloc) {
         $substituted[] = self::substitute($bloc);
       }
-      $splitted = str_split(join("", $substituted), 8);
+      $splitted = str_split(join("", $substituted), 4);
       $encoded = array();
       foreach ($splitted as $bloc) {
         $encoded[] = self::xou($bloc, $key);
       }
       return join("", $encoded);
+    }
+
+    public static function feistel($word, $key, $rounds) {
+      $encrypted = $word;
+      for ($i=0; $i<$rounds; $i++) {
+        $encrypted = self::crypto($encrypted, $key);
+      }
+      return $encrypted;
+    }
+
+    public static function unfeistel($encrypted, $key, $rounds) {
+      $word = $encrypted;
+      for ($i=0; $i<$rounds; $i++) {
+        $word = self::uncrypto($word, $key);
+      }
+      return $word;
     }
 
     public static function uncrypto($code, $key) {

@@ -28,16 +28,29 @@
   }
 
   function crypto() {
-    $key = "01001110";
+    $key = "0110";
     echo "crypto : cryptage complet d'une chaîne (AMI)\n";
     echo Encoding::crypto("AMI", $key) . "\n\n";
   }
 
   function uncrypto() {
-    $key = "01001110";
+    $key = "0110";
     echo "uncrypto : décryptage complet d'une chaîne (AMI)\n";
     $encrypted = Encoding::crypto("AMI", $key);
-    echo Encoding::uncrypto($encrypted, $key);
+    echo Encoding::uncrypto($encrypted, $key) . "\n\n";
+  }
+
+  function feistel() {
+    $key = "0110";
+    echo "feistel : cryptage complet d'une chaîne (AMI) x fois\n";
+    echo Encoding::feistel("AMI", $key, 3) . "\n\n";
+  }
+
+  function unfeistel() {
+    $key = "0110";
+    echo "unfeistel : décryptage complet d'une chaîne (AMI)\n";
+    $encrypted = Encoding::feistel("AMI", $key, 3);
+    echo Encoding::unfeistel($encrypted, $key, 3) . "\n\n";
   }
 
   ttob();
@@ -46,4 +59,6 @@
   sub();
   crypto();
   uncrypto();
+  feistel();
+  unfeistel();
 ?>

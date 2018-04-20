@@ -30,14 +30,14 @@
   function crypto() {
     $key = "0110";
     echo "crypto : cryptage complet d'une chaîne (AMI)\n";
-    echo Encoding::crypto("AMI", $key) . "\n\n";
+    echo Encoding::crypto(Encoding::text_to_binary("AMI"), $key) . "\n\n";
   }
 
   function uncrypto() {
     $key = "0110";
     echo "uncrypto : décryptage complet d'une chaîne (AMI)\n";
-    $encrypted = Encoding::crypto("AMI", $key);
-    echo Encoding::uncrypto($encrypted, $key) . "\n\n";
+    $encrypted = Encoding::crypto(Encoding::text_to_binary("AMI"), $key);
+    echo Encoding::binary_to_text(Encoding::uncrypto($encrypted, $key)) . "\n\n";
   }
 
   function feistel() {

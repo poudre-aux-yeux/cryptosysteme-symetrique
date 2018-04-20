@@ -20,17 +20,17 @@
       "1111" => "1001"
     ];    
 
-    private function lettre_hexa($lettre) {
+    private static function lettre_hexa($lettre) {
       $array = unpack("H*", utf8_encode($lettre));
       return $array[1];
     }
 
-    private function hexa_lettre($bin) {
+    private static function hexa_lettre($bin) {
       $hex = base_convert($bin, 2, 16);
       return pack("H*", $hex);
     }
 
-    public function shuffle($bin) {
+    public static function shuffle($bin) {
       $arr = str_split($bin);
       $shuffled = array();
 
@@ -41,7 +41,7 @@
       return implode("", $shuffled);
     }
 
-    public function unshuffle($bin) {
+    public static function unshuffle($bin) {
       $arr = str_split($bin);
       $unshuffled = array();
 
@@ -52,7 +52,7 @@
       return join("", $unshuffled);
     }
 
-    public function xou($bin, $key) {
+    public static function xou($bin, $key) {
       $splitted_bin = str_split($bin);
       $splitted_key = str_split($key);
       $xouified = array();
@@ -63,11 +63,11 @@
       return join("", $xouified);
     }
 
-    public function substitute($bin) {
+    public static function substitute($bin) {
       return self::$substitution[$bin];
     }
 
-    public function unsubstitute($bin) {
+    public static function unsubstitute($bin) {
       return array_search($bin, self::$substitution);
     }
 
@@ -89,8 +89,7 @@
       return utf8_encode($text);
     }
 
-    public static function crypto($word, $key) {
-      $bin = self::text_to_binary($word);
+    public static function crypto($bin, $key) {
       $splitted = str_split($bin, 8);
       $shuffled = array();
       foreach ($splitted as $bloc) {
@@ -110,7 +109,7 @@
     }
 
     public static function feistel($word, $key, $rounds) {
-      $encrypted = $word;
+      $encrypted = self::text_to_binary($word);
       for ($i=0; $i<$rounds; $i++) {
         $encrypted = self::crypto($encrypted, $key);
       }
@@ -122,7 +121,7 @@
       for ($i=0; $i<$rounds; $i++) {
         $word = self::uncrypto($word, $key);
       }
-      return $word;
+      return self::binary_to_text($word);
     }
 
     public static function uncrypto($code, $key) {
@@ -141,7 +140,7 @@
       foreach ($splitted as $bloc) {
         $unshuffled[] = self::unshuffle($bloc);
       }
-      return self::binary_to_text(join("", $unshuffled));
+      return join("", $unshuffled);
     }
   }
 ?>

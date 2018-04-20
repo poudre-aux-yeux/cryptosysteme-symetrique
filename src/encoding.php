@@ -43,14 +43,14 @@
   function feistel() {
     $key = "0110";
     echo "feistel : cryptage complet d'une chaîne (AMI) x fois\n";
-    echo Encoding::feistel("AMI", $key, 3) . "\n\n";
+    echo Encoding::feistel("AMI", $key, 12) . "\n\n";
   }
 
   function unfeistel() {
     $key = "0110";
     echo "unfeistel : décryptage complet d'une chaîne (AMI)\n";
-    $encrypted = Encoding::feistel("AMI", $key, 3);
-    echo Encoding::unfeistel($encrypted, $key, 3) . "\n\n";
+    $encrypted = Encoding::feistel("AMI", $key, 12);
+    echo Encoding::unfeistel($encrypted, $key, 12) . "\n\n";
   }
 
   ttob();
